@@ -1,0 +1,29 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'weatherapp/arrestDisplay.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recent Arrests</title>
+</head>
+<body>
+    <ul id="navBarUL">
+        <li class="navBarItem" style="font-weight:bold"><a href="{% url 'weatherapp:index' %}">Search by Date</a></li>
+        <li class="navBarItem" style="font-weight:bold"><a href="{% url 'weatherapp:searchByWeatherType' %}">Search by Weather Type</a></li>
+    </ul>
+
+    Recent Arrests in Fulton County:
+    <table>
+    <tr><td>Name</td></tr>
+    {% for name in names_list %}
+        <tr>
+            <td>
+                {{ name }}
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>
