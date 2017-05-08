@@ -1,0 +1,47 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'weatherapp/index.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search By Weather Type</title>
+</head>
+<body>
+    <ul id="navBarUL">
+        <li class="navBarItem" style="font-weight:bold"><a href="{% url 'weatherapp:index' %}">Search by Date</a></li>
+        <li class="navBarItem" style="font-weight:bold"><a href="{% url 'weatherapp:searchByWeatherType' %}">Search by Weather Type</a></li>
+    </ul>
+
+    <form action="{% url 'weatherapp:weatherTypeResponse' %}" method="post">
+        {% csrf_token %}
+        Starting Year (1930-2015):
+        <input type="number" name="year" min="1930" max="2015" value="1930">
+        <select name="select_type">
+            <option value="blowingsnow">Blowing Snow</option>
+            <option value="drizzle">Drizzle</option>
+            <option value="dust_ash">Dust/Ash</option>
+            <option value="fog">Fog</option>
+            <option value="freezingdrizzle">Freezing Drizzle</option>
+            <option value="freezingrain">Freezing Rain</option>
+            <option value="glaze_rime">Glaze/Rime</option>
+            <option value="groundfog">Ground Fog</option>
+            <option value="hail">Hail</option>
+            <option value="heavyfog">Heavy Fog</option>
+            <option value="highwinds">High Winds</option>
+            <option value="icefog">Ice Fog</option>
+            <option value="sleet">Sleet</option>
+            <option value="mist">Mist</option>
+            <option value="rain">Rain</option>
+            <option value="smokehaze">Smoke/Haze</option>
+            <option value="snow">Snow</option>
+            <option value="thunder">Thunder</option>
+            <option value="tornado">Tornado</option>
+        </select>
+        <!--option names correspond to model fields-->
+        <br><br>
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+body{
+    background-color: #aacdea;
+}
+
+#navBarUL {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5577ea;
+    border-radius: 10px;
+}
+
+.navBarItem {
+    float: left;
+}
+
+.navBarItem a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navBarItem a:hover {
+    background-color: #6d9cea;
+}
+
+th{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    width: 10em;
+}

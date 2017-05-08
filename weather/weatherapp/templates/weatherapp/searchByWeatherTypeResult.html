@@ -1,0 +1,34 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'weatherapp/result.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search By Type - Results</title>
+</head>
+<body>
+    <ul id="navBarUL">
+        <li class="navBarItem" style="font-weight:bold"><a href="{% url 'weatherapp:index' %}">Search by Date</a></li>
+        <li class="navBarItem" style="font-weight:bold"><a href="{% url 'weatherapp:searchByWeatherType' %}">Search by Weather Type</a></li>
+    </ul>
+
+    <h1>Results of Search for {{ weather_type }}</h1>
+    <h2>Since {{ start_year }}</h2>
+
+    <table>
+        <tr>
+            <th>Month</th>
+            <th>Day</th>
+            <th>Year</th>
+        </tr>
+        {% for entry in id_list %}
+            <tr>
+                <td>{{ entry.month }}</td>
+                <td>{{ entry.day }}</td>
+                <td>{{ entry.year }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

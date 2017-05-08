@@ -1,0 +1,131 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'weatherapp/result.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
+
+    <ul id="navBarUL">
+        <li class="navBarItem" style="font-weight:bold"><a href="{% url 'weatherapp:index' %}">Search by Date</a></li>
+        <li class="navBarItem" style="font-weight:bold"><a href="{% url 'weatherapp:searchByWeatherType' %}">Search by Weather Type</a></li>
+    </ul>
+
+    <h1>Historical Weather Data For {{ month }}/{{ day }} </h1>
+    {% if single_bool %}
+        <h2>For the year {{ year }}</h2>
+    {% else %}
+        <h2>Since {{ year }}</h2>
+    {% endif %}
+
+    <table>
+        <tr>
+            <td id="emptyCell"></td>
+            <th class="centeredHeader">Data</th>
+            <th class="centeredHeader">Unit</th>
+        </tr>
+        <tr>
+            <th>
+                Minimum Temperature
+            </th>
+            <td>
+                {{ minimum_temperature }}
+            </td>
+            <td>
+                (F)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Average Temperature
+            </th>
+            <td>
+                {{ average_temperature }}
+            </td>
+            <td>
+                (F)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Maximum Temperature
+            </th>
+            <td>
+                {{ maximum_temperature }}
+            </td>
+            <td>
+                (F)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="tdDivider"></td>
+            <td class="tdDivider"></td>
+            <td class="tdDivider"></td>
+        </tr>
+
+        <tr>
+            <th>
+                Rainfall
+            </th>
+            <td>
+                {{ precipitation }}
+            </td>
+            <td>
+                Inches
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Snow Depth
+            </th>
+            <td>
+                {{ snow_depth }}
+            </td>
+            <td>
+                Inches
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Snowfall
+            </th>
+            <td>
+                {{ snow_fall }}
+            </td>
+            <td>
+                Inches
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th class="centeredHeader">
+                Type
+            </th>
+            <th class="centeredHeader">
+                Value
+            </th>
+        </tr>
+        {% for value in severe %}
+            {% for name in severeNames %}
+                {% if forloop.counter == forloop.parentloop.counter %}
+                    <tr>
+                        <td>
+                            {{ name }}
+                        </td>
+                        <td>
+                            {{ value }}
+                        </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+</body>
+</html>

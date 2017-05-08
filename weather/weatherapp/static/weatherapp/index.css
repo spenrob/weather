@@ -1,0 +1,68 @@
+#form1{
+    position: absolute;
+    left: 20%;
+    top: 30%;
+}
+
+#form2{
+    position: absolute;
+    right: 40%;
+    top:30%
+}
+
+body{
+    background-color: #aacdea;
+}
+
+#navBarUL {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5577ea;
+    border-radius: 10px;
+}
+
+.navBarItem {
+    float: left;
+}
+
+.navBarItem a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navBarItem a:hover {
+    background-color: #6d9cea;
+}
+
+form{
+    background-color: #6d9cea;
+    width: 20em;
+    margin:auto;
+    position: absolute;
+    top: 30%;
+    right: 0;
+    left: 0;
+    text-align: center;
+    border-radius: 20px;
+    padding-top: 20px;
+}
+
+input[type=number]{
+    text-align:center;
+    display: block;
+    margin: 0 auto 1em auto;
+    width: 90%;
+}
+
+input[type=submit]{
+    text-align:center;
+    display: block;
+    margin: 0 auto 1em auto;
+    width: 30%;
+    border-radius: 6px;
+}
